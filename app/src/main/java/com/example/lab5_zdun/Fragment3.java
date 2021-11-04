@@ -4,16 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import com.example.lab5_zdun.databinding.Fragment3Binding;
 
-import com.example.lab5_zdun.databinding.FragmentSecondBinding;
+public class Fragment3 extends Fragment {
 
-public class SecondFragment extends Fragment {
-
-    private FragmentSecondBinding binding;
+    private Fragment3Binding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +19,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = Fragment3Binding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,20 +27,21 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
+        binding.buttonThird.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                NavHostFragment.findNavController(Fragment3.this)
+                        .navigate(R.id.action_fragment3_to_FirstFragment);
             }
         });
-        binding.button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_fragment3);
-            }
-        });
+                binding.Button3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        NavHostFragment.findNavController(Fragment3.this)
+                                .navigate(R.id.action_fragment3_to_SecondFragment);
+                    }
+                }
+        );
 
     }
 
